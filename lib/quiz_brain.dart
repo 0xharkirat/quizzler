@@ -39,11 +39,25 @@ class QuizBrain {
     }
   }
 
+  bool isFinished(){
+    if (_questionNumber >= _questionBank.length - 1){
+      return true;
+
+    }
+    else{
+      return false;
+    }
+  }
+
   String getQuestion(){
     return _questionBank[_questionNumber].questionText;
   }
 
   bool getAnswer(){
     return _questionBank[_questionNumber].questionAnswer;
+  }
+
+  void reset(){
+    _questionNumber = 0;
   }
 }
