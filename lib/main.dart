@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(Quizzler());
@@ -37,6 +39,12 @@ class _QuizPageState extends State<QuizPage> {
 
   int questionNumber = 0;
 
+  List<bool> answers = [
+    false,
+    true,
+    false,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -75,6 +83,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+                if (correctAnswer == true){
+                  print("You got it right");
+                }
+                else{
+                  print("You got it wrong");
+                }
                 setState(() {
                   questionNumber += 1;
                 });
@@ -97,6 +112,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == false){
+                  print("You got it right");
+                }
+                else{
+                  print("You got it wrong");
+                }
                 setState(() {
                   questionNumber += 1;
                 });
